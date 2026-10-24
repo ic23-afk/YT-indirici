@@ -1,0 +1,125 @@
+=====================================================
+  YOUTUBE İNDİRİCİ - ANDROID (APK) - BENİ OKU
+=====================================================
+
+APK dosyasını telefonda doğrudan derleyemiyoruz. Bunun yerine GitHub
+(ücretsiz) senin için APK'yı otomatik derler. Sen sadece dosyaları
+yükleyip bekleyeceksin. Bilgisayardan yapmak en kolayı.
+
+Bu klasördeki dosyalar:
+   * main.py           -> uygulamanın kendisi
+   * buildozer.spec    -> uygulama ayarları
+   * .github/workflows/build.yml -> GitHub'a "APK'yı derle" diyen dosya
+
+
+-----------------------------------------------------
+BÖLÜM 1: APK'YI OLUŞTURMA (sadece 1 kere)
+-----------------------------------------------------
+
+ADIM 1 - GitHub hesabı aç
+   - github.com adresine git > "Sign up" ile ücretsiz hesap oluştur.
+   - Zaten hesabın varsa giriş yap.
+
+ADIM 2 - Yeni depo (repository) oluştur
+   - Sağ üstteki "+" işareti > "New repository".
+   - Repository name: youtube-indirici
+   - "Public" seçili olsun (ücretsiz ve sınırsız derleme için).
+   - En alttaki yeşil "Create repository" düğmesine bas.
+
+ADIM 3 - Dosyaları yükle
+   - Açılan sayfada "uploading an existing file" yazısına tıkla.
+   - Zip dosyasını bilgisayarında klasöre çıkar.
+   - Klasörün İÇİNDEKİ 3 şeyi birlikte sayfaya sürükle bırak:
+        main.py, buildozer.spec ve .github klasörü
+   - Altta yeşil "Commit changes" düğmesine bas.
+
+   ÖNEMLİ: .github klasörü yüklenmediyse (Mac'te gizli olabilir):
+      - Depo ana sayfasında "Add file" > "Create new file" de.
+      - Üstteki isim kutusuna aynen şunu yaz:
+            .github/workflows/build.yml
+        (eğik çizgileri yazınca klasörler otomatik oluşur)
+      - Altındaki büyük kutuya build.yml dosyasının içeriğini kopyala-yapıştır.
+      - "Commit changes" de.
+
+ADIM 4 - Derlemeyi başlat ve bekle
+   - Sayfanın üstündeki "Actions" sekmesine tıkla.
+   - "I understand my workflows, go ahead and enable them" çıkarsa
+     o düğmeye bas.
+   - Listede "APK Olustur" çalışmaya başlar (sarı yuvarlak).
+   - Bu işlem 15-25 dakika sürer. Sayfayı kapatabilirsin.
+   - Bitince yuvarlak yeşil tik olur. (Kırmızı X olursa aşağıdaki
+     "Sorun çıkarsa" bölümüne bak.)
+
+ADIM 5 - APK'yı indir
+   - Yeşil tikli satıra tıkla.
+   - Sayfayı en alta kaydır, "Artifacts" bölümünde
+     "YouTubeIndirici-APK" yazar. Ona tıkla, bir zip iner.
+   - Zip'i aç, içinden .apk dosyası çıkar.
+
+
+-----------------------------------------------------
+BÖLÜM 2: TELEFONA KURMA
+-----------------------------------------------------
+
+ADIM 6 - APK'yı telefona gönder
+   - USB kablo, Google Drive, e-posta veya kendine WhatsApp ile at.
+   - (Ya da GitHub Actions sayfasını telefondan açıp APK zip'ini
+     doğrudan telefona indirebilirsin.)
+
+ADIM 7 - Kur
+   - Telefonda APK dosyasına dokun.
+   - "Bilinmeyen kaynaklardan yükleme" izni isterse:
+        "Ayarlar" > bu uygulama (Dosyalarım/Chrome/WhatsApp) için
+        "Bu kaynaktan izin ver" anahtarını aç > geri dön.
+   - "Yükle" de.
+   - Play Protect uyarı verirse "Yine de yükle" de. (Uygulamayı sen
+     derlediğin için güvenlidir.)
+
+ADIM 8 - İlk açılış
+   - "YouTube İndirici" uygulamasını aç.
+   - Depolama izni isterse "İzin ver" de.
+
+
+-----------------------------------------------------
+BÖLÜM 3: VİDEO İNDİRME
+-----------------------------------------------------
+
+   1. YouTube uygulamasında videoyu aç > "Paylaş" > "Bağlantıyı kopyala".
+   2. "YouTube İndirici" uygulamasını aç.
+   3. "Yapıştır" düğmesine bas.
+   4. Formatı seç:
+        * Video (MP4, en iyi hazır kalite)
+        * Video (MP4, en fazla 720p)
+        * Sadece ses (M4A)
+   5. "İNDİR" düğmesine bas.
+   6. "Tamamlandı!" yazınca video telefonunda şu klasördedir:
+            İndirilenler (Download) > YouTubeIndirici
+      Galeri veya Dosyalar uygulamasından açabilirsin.
+
+NOT: Telefon sürümünde ffmpeg olmadığı için görüntü ve sesi birleştirilmiş
+hazır formatlar indirilir. Bu yüzden kalite genelde 720p'ye kadardır.
+Ses için MP3 yerine M4A inilir (her müzik çaları açar).
+
+
+-----------------------------------------------------
+SORUN ÇIKARSA
+-----------------------------------------------------
+
+* Actions'ta kırmızı X çıkarsa:
+     X'li satıra tıkla > "build" > hata satırını kopyalayıp bana gönder,
+     düzeltirim. Uzun sürmesi (25 dakikayı geçmesi) normaldir.
+
+* İndirirken "Hata oluştu" çıkarsa:
+     YouTube zaman zaman değişir. GitHub'da Actions > "APK Olustur" >
+     "Run workflow" de. Her derlemede yt-dlp'nin en yeni sürümü alınır.
+     Yeni APK'yı indirip eskisinin üstüne kur.
+
+* "Uygulama yüklenmedi" derse:
+     Eski sürümü sil, yenisini kur.
+
+-----------------------------------------------------
+ÖNEMLİ NOT
+-----------------------------------------------------
+
+YouTube'un kullanım şartları video indirmeye izin vermez. Uygulamayı sadece
+kendi videolarını veya indirme izni olan içerikleri indirmek için kullan.
